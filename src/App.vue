@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import DynamicClock from './components/DynamicClock.vue'
+import DynamicClockReusable from './components/DynamicClockReusable.vue'
 </script>
 
 <template>
-  <DynamicClock />
+  <div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-600 to-blue-600">
+    <DynamicClockReusable />
+  </div>
 </template>
-
-<style scoped></style>
