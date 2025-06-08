@@ -11,9 +11,7 @@ A beautiful, customizable clock component for Vue 3 with TypeScript support. Fea
 
 ## 🎥 Demo
 
-![Clock Demo](./demo/clock-demo.gif)
-
-<!-- TODO: Add clock-demo.gif to the demo folder -->
+https://github.com/user-attachments/assets/62755b7f-e53d-46c0-bb61-5893bc1ad589
 
 ## Features
 
