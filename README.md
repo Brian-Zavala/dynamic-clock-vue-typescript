@@ -12,36 +12,124 @@ A beautiful, customizable clock component for Vue 3 with TypeScript support. Fea
 - ✨ **Smooth Animations**: Beautiful border animations on analog clock
 - 🎯 **TypeScript**: Full type safety
 - 🎮 **Customizable**: Props for all display options
-- 🔌 **Slots**: Add custom controls or content
+- 📦 **Tree-shakable**: Optimized for modern bundlers
+
+## Prerequisites
+
+**⚠️ Important**: This component requires Tailwind CSS to be installed and configured in your project as it uses Tailwind utility classes for styling.
+
+### Install Tailwind CSS (if not already installed)
+
+**For Vite projects (Recommended):**
+
+```bash
+npm install tailwindcss @tailwindcss/vite
+```
+
+Add to your `vite.config.ts`:
+
+```ts
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import tailwindcss from '@tailwindcss/vite'
+
+export default defineConfig({
+  plugins: [vue(), tailwindcss()],
+})
+```
+
+Add to your main CSS file (e.g., `src/assets/main.css`):
+
+```css
+@import 'tailwindcss';
+```
+
+**For tailwind(3.9⬇️):**
+
+```bash
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+```
+
+Configure your `tailwind.config.js`:
+
+```js
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    './index.html',
+    './src/**/*.{vue,js,ts,jsx,tsx}',
+    './node_modules/dynamic-clock-vue-component/**/*.{vue,js,ts}',
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
 
 ## Installation
 
-Copy the `DynamicClockReusable.vue` component into your project:
-
 ```bash
-# Copy to your components directory
-cp DynamicClockReusable.vue src/components/
+npm install dynamic-clock-vue-component
 ```
 
 ## Basic Usage
 
+### ES Module Import
+
 ```vue
 <script setup lang="ts">
-import DynamicClock from '@/components/DynamicClockReusable.vue'
+import { DynamicClockReusable } from 'dynamic-clock-vue-component'
 </script>
 
 <template>
   <!-- Minimal usage -->
-  <DynamicClock />
+  <DynamicClockReusable />
 
   <!-- With custom container -->
   <div
     class="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-600 to-blue-600"
   >
-    <DynamicClock />
+    <DynamicClockReusable />
   </div>
 </template>
 ```
+
+### Default Import
+
+```vue
+<script setup lang="ts">
+import DynamicClock from 'dynamic-clock-vue-component'
+</script>
+
+<template>
+  <DynamicClock />
+</template>
+```
+
+### Plugin Installation (Vue.use)
+
+```ts
+// main.ts
+import { createApp } from 'vue'
+import App from './App.vue'
+import { DynamicClockPlugin } from 'dynamic-clock-vue-component'
+
+const app = createApp(App)
+app.use(DynamicClockPlugin)
+app.mount('#app')
+```
+
+Then use in templates:
+
+```vue
+<template>
+  <DynamicClock />
+</template>
+```
+
+> **Note about CSS**: You don't need to manually import CSS files! The component's styles are automatically included when Tailwind CSS processes your project. The built component only contains scoped styles and custom animations - all Tailwind utility classes are handled by your project's Tailwind installation.
 
 ## Props
 
@@ -79,20 +167,50 @@ Add custom control buttons:
 </template>
 ```
 
+## TypeScript Support
+
+The component exports TypeScript interfaces for better development experience:
+
+```ts
+import type { DynamicClockProps } from 'dynamic-clock-vue-component'
+
+// Use the interface for type safety
+const clockProps: DynamicClockProps = {
+  size: 'large',
+  theme: 5,
+  showAnalog: true,
+  showDigital: true,
+  use24Hour: false,
+  showDate: true,
+  containerClass: 'my-custom-class',
+}
+```
+
 ## Advanced Example
 
 ```vue
 <script setup lang="ts">
 import { ref } from 'vue'
-import DynamicClock from '@/components/DynamicClockReusable.vue'
+import { DynamicClockReusable } from 'dynamic-clock-vue-component'
+import type { DynamicClockProps } from 'dynamic-clock-vue-component'
 
 const currentTheme = ref(0)
 const clockSize = ref<'small' | 'medium' | 'large'>('medium')
+
+// Type-safe props
+const clockConfig: DynamicClockProps = {
+  size: clockSize.value,
+  theme: currentTheme.value,
+  showAnalog: true,
+  showDigital: true,
+  use24Hour: false,
+  showDate: true,
+}
 </script>
 
 <template>
   <div class="p-8">
-    <DynamicClock
+    <DynamicClockReusable
       :size="clockSize"
       :theme="currentTheme"
       :show-analog="true"
@@ -109,7 +227,7 @@ const clockSize = ref<'small' | 'medium' | 'large'>('medium')
 The component includes 20 professional gradient themes from the [uiGradients](https://github.com/ghosh/uiGradients) collection:
 
 1. **Omolon** (0): Deep blue to light blue gradient
-2. **Farhan** (1): Purple to indigo gradient  
+2. **Farhan** (1): Purple to indigo gradient
 3. **Purple** (2): Pink to rose gradient
 4. **Iota** (3): Blue to purple gradient
 5. **Radar** (4): Purple to pink to peach gradient
@@ -135,6 +253,35 @@ The component includes 20 professional gradient themes from the [uiGradients](ht
 
 Gradient themes are sourced from the beautiful [uiGradients](https://uigradients.com) collection by [@ghosh](https://github.com/ghosh/uiGradients) - a community-contributed collection of beautiful multi-color gradients.
 
+## Troubleshooting
+
+### Styles not working
+
+- Ensure Tailwind CSS is properly installed and configured in your project
+- Make sure you have `@import "tailwindcss";` in your main CSS file
+- Verify your Tailwind config includes the component path in the content array
+- Check that your Vite config includes the `@tailwindcss/vite` plugin
+
+### TypeScript errors
+
+- Install Vue types: `npm install -D @vue/tsconfig`
+- Ensure your `tsconfig.json` includes Vue file extensions
+
+### Component not appearing
+
+- Check that Vue 3 is installed as a peer dependency
+- Verify the component is properly imported and used in the template
+
+## Dependencies
+
+### Peer Dependencies
+
+- Vue 3.x (`vue: ^3.0.0`)
+
+### Included Dependencies
+
+- Tailwind CSS 4.1 (bundled with component styles)
+
 ## Notes
 
 - The component is self-contained and doesn't include a full-screen container
@@ -143,6 +290,7 @@ Gradient themes are sourced from the beautiful [uiGradients](https://uigradients
 - All times are based on the user's system clock
 - The component updates every second automatically
 - Gradient themes use CSS `linear-gradient()` for optimal performance
+- Component styles are scoped and won't interfere with your global styles
 
 ## License
 
