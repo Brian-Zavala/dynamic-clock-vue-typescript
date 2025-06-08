@@ -1,5 +1,12 @@
 # Dynamic Clock Vue Component
 
+[![npm version](https://img.shields.io/npm/v/dynamic-clock-vue-component)](https://www.npmjs.com/package/dynamic-clock-vue-component)
+[![npm downloads](https://img.shields.io/npm/dm/dynamic-clock-vue-component)](https://www.npmjs.com/package/dynamic-clock-vue-component)
+[![GitHub stars](https://img.shields.io/github/stars/Brian-Zavala/dynamic-clock-vue-typescript)](https://github.com/Brian-Zavala/dynamic-clock-vue-typescript)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/)
+[![Vue 3](https://img.shields.io/badge/Vue-3.x-green.svg)](https://vuejs.org/)
+
 A beautiful, customizable clock component for Vue 3 with TypeScript support. Features both analog and digital displays with smooth animations and 20+ professional gradient themes from the uiGradients collection.
 
 ## Features

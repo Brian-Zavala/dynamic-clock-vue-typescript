@@ -1,7 +1,7 @@
 {
   "name": "dynamic-clock-vue-component",
   "version": "1.0.0",
-  "description": "A customizable, animated clock component for Vue 3 with TypeScript support",
+  "description": "🕐 Beautiful animated clock component for Vue 3 with 20+ gradient themes, TypeScript support, and Tailwind CSS styling. Perfect for dashboards, apps, and websites.",
   "type": "module",
   "main": "./dist/dynamic-clock.umd.js",
   "module": "./dist/dynamic-clock.es.js",
@@ -25,18 +25,28 @@
   "keywords": [
     "vue",
     "vue3",
+    "vuejs",
     "typescript",
     "clock",
+    "time",
     "component",
-    "analog",
-    "digital",
-    "tailwind"
+    "analog-clock",
+    "digital-clock",
+    "tailwind",
+    "tailwindcss",
+    "animated",
+    "gradient",
+    "ui-component",
+    "real-time",
+    "responsive",
+    "themes",
+    "customizable"
   ],
-  "author": "Your Name",
+  "author": "Brian Zavala",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/dynamic-clock-vue-component"
+    "url": "https://github.com/Brian-Zavala/dynamic-clock-vue-typescript"
   },
   "peerDependencies": {
     "vue": "^3.0.0"
