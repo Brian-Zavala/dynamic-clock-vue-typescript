@@ -25,6 +25,43 @@ const hourDegrees = computed(() => {
   // subtract 90 to start from top (12 o'clock)
   return degreesFromHours + degreesFromMinutes - 90
 })
+
+// Calculate rotation degrees for minute hand
+// Minute hand moves 6 deg per minute => (360deg / 60)minutes
+const minuteDegrees = computed(() => {
+  const minuteDegrees = minutes.value * 6
+  const degreesFromSeconds = (seconds.value / 60) * 6
+  return minuteDegrees + degreesFromSeconds - 90
+})
+
+// Format time as HH:MM:SS
+const formattedTime = computed(() => {
+  // padStart ensures two digits('01' not '1')
+  const hh = hours.value.toString().padStart(2, '0')
+  const mm = minutes.value.toString().padStart(2, '0')
+  const ss = seconds.value.toString().padStart(2, '0')
+  return `${hh}:${mm}:${ss}`
+})
+
+// Format date as YYYY-MM-DD
+
+const formattedDate = computed(() => {
+  const options: Intl.DateTimeFormatOptions = {
+    weekday: 'long', // 'Monday'
+    year: 'numeric', // '2023'
+    month: 'long', // 'September'
+    day: 'numerict', // '13'
+  }
+  return currentDate.value.toLocaleDateString(undefined, options)
+})
+
+// ==== Functions ====
+// Update time every second
+
+const updateTime = () => {
+  const now = new Date()
+  hours.value = now.getHours()
+}
 </script>
 
 <template>
