@@ -4,8 +4,8 @@ import type { App } from 'vue'
 // Export the component for individual import
 export { DynamicClockReusable }
 
-// Export the component as default export as well for convenience
-export { DynamicClockReusable as default }
+// Export default separately (not as re-export)
+export default DynamicClockReusable
 
 // Export plugin installer for Vue.use()
 export const DynamicClockPlugin = {
@@ -22,5 +22,7 @@ export interface DynamicClockProps {
   showDigital?: boolean
   use24Hour?: boolean
   showDate?: boolean
+  showControls?: boolean
   containerClass?: string
+  wrapperClass?: string
 }

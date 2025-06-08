@@ -9,6 +9,12 @@
 
 A beautiful, customizable clock component for Vue 3 with TypeScript support. Features both analog and digital displays with smooth animations and 20+ professional gradient themes from the uiGradients collection.
 
+## 🎥 Demo
+
+![Clock Demo](./demo/clock-demo.gif)
+
+<!-- TODO: Add clock-demo.gif to the demo folder -->
+
 ## Features
 
 - 🕐 **Dual Display**: Both analog and digital clock displays
@@ -75,10 +81,32 @@ export default {
 }
 ```
 
-## Installation
+## 🚀 Quick Start
+
+### Installation
 
 ```bash
 npm install dynamic-clock-vue-component
+```
+
+### Running the Demo Locally
+
+```bash
+# Clone the repository
+git clone https://github.com/Brian-Zavala/dynamic-clock-vue-typescript.git
+
+# Navigate to project directory
+cd dynamic-clock-vue-typescript
+
+# Install dependencies
+pnpm install
+# or npm install
+
+# Run development server
+pnpm dev
+# or npm run dev
+
+# Open http://localhost:5173 in your browser
 ```
 
 ## Basic Usage
@@ -299,6 +327,10 @@ Gradient themes are sourced from the beautiful [uiGradients](https://uigradients
 - Gradient themes use CSS `linear-gradient()` for optimal performance
 - Component styles are scoped and won't interfere with your global styles
 
-## License
+## 🤝 Contributing
 
-MIT
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📄 License
+
+MIT © Brian Zavala

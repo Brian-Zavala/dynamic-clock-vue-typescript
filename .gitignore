@@ -11,6 +11,7 @@ node_modules
 .DS_Store
 dist
 dist-ssr
+demo-dist
 coverage
 *.local
 
@@ -31,3 +32,8 @@ coverage
 
 test-results/
 playwright-report/
+
+# Demo media files (uncomment if files are large)
+# demo/*.gif
+# demo/*.png
+# !demo/README.md
