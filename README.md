@@ -309,11 +309,8 @@ Gradient themes are sourced from the beautiful [uiGradients](https://uigradients
 
 ### Peer Dependencies
 
-- Vue 3.x (`vue: ^3.0.0`)
-
-### Included Dependencies
-
-- Tailwind CSS 4.1 (bundled with component styles)
+- Vue (`vue: ^3.0.0`)
+- Tailwind CSS (`tailwindcss: ^3.0.0`)
 
 ## Notes
 
